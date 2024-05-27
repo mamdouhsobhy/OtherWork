@@ -1,20 +1,15 @@
 package com.example.otherwork.home.presentation.home
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.otherwork.R
-import com.example.otherwork.common.SharedPrefs
 import com.example.otherwork.constant.Nav
 import com.example.otherwork.databinding.FragmentHomeBinding
 import com.example.otherwork.extention.setViewBackground
-import com.example.otherwork.home.MainActivity
 import com.example.otherwork.home.presentation.home.adapter.AdapterGasoline
 import com.example.otherwork.home.presentation.home.adapter.AdapterPayment
 import com.example.otherwork.home.presentation.home.model.GasolineModel
@@ -34,8 +29,6 @@ class FragmentHome : Fragment() {
 
     }) }
 
-    lateinit var sharedPrefs: SharedPrefs
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -47,7 +40,6 @@ class FragmentHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedPrefs = SharedPrefs(requireContext())
         addListenerOnView()
         setUpGasoline()
         setUpPayment()
@@ -56,7 +48,7 @@ class FragmentHome : Fragment() {
 
     private fun setUpGasoline() {
         val list = ArrayList<GasolineModel>()
-        list.add(GasolineModel("95","#429F46",true))
+        list.add(GasolineModel("95","#429F46", selected = true))
         list.add(GasolineModel("91","#F44336"))
         list.add(GasolineModel("95","#3F51B5"))
         list.add(GasolineModel("Diesel","#FF5722"))
@@ -96,41 +88,6 @@ class FragmentHome : Fragment() {
             binding.edAmount.setViewBackground(R.drawable.drawable_corner_edittext)
             binding.edLiter.setViewBackground(R.drawable.drawable_corner_offwhite)
         }
-        changeUserType()
     }
 
-    private fun changeUserType() {
-        val users = arrayOf(
-            "Admin",
-            "natural user",
-            getString(R.string.cancel)
-        )
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, users)
-
-        AlertDialog.Builder(requireContext())
-            .setTitle("change user type?")
-            .setAdapter(adapter) { dialog, which ->
-                val selectedUsers = users[which]
-                if (selectedUsers == "Admin") {
-                    dialog.dismiss()
-                    sharedPrefs.saveIsAdmin(true)
-                    intentToMain()
-                }else if (selectedUsers == "natural user") {
-                    dialog.dismiss()
-                    sharedPrefs.saveIsAdmin(false)
-                    intentToMain()
-                } else {
-                    dialog.dismiss()
-                }
-
-            }
-            .setCancelable(false)
-            .show()
-    }
-
-    private fun intentToMain(){
-        val intent = Intent(requireContext(),MainActivity::class.java)
-        startActivity(intent)
-        requireActivity().finish()
-    }
 }

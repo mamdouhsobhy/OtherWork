@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var sharedPrefs: SharedPrefs
 
+    var isAdmin = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -29,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         initialize()
         initiateBottomNavigation()
 
-        val isAdmin = checkIfUserIsAdmin()
         if (isAdmin) {
             binding.bottomNavigationView.menu.findItem(R.id.nav_invoices).setVisible(false)
         }else{
@@ -66,7 +67,4 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navController)
     }
 
-    private fun checkIfUserIsAdmin(): Boolean {
-        return sharedPrefs.getIsAdmin()
-    }
 }

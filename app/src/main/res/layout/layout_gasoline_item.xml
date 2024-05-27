@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parentGasoline"
-    android:background="@drawable/drawable_border_select"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/drawable_border_select">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutGasolineItem"
@@ -26,6 +26,7 @@
             android:id="@+id/tvGasolineValue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clickable="false"
             android:gravity="center"
             android:text="95"
             android:textColor="@color/white"
