@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
-import com.example.otherwork.home.MainActivity
 import com.example.otherwork.R
 import com.example.otherwork.databinding.ActivityLoginBinding
 import com.example.otherwork.extention.TxT
@@ -13,6 +12,7 @@ import com.example.otherwork.extention.onTextChange
 import com.example.otherwork.extention.resetError
 import com.example.otherwork.extention.setError
 import com.example.otherwork.extention.setStatusBarColor
+import com.example.otherwork.home.MainActivity
 
 
 class ActivityLogin : AppCompatActivity() {
@@ -30,7 +30,6 @@ class ActivityLogin : AppCompatActivity() {
         initialize()
         addListenerOnView()
         makeUnderLineText()
-
 
     }
 

@@ -22,4 +22,10 @@
         <item name="colorSurface">@null</item>
     </style>
 
+    <style name="BottomNavigationViewStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="itemIconTint">@color/green</item>
+        <item name="itemTextColor">@color/green</item>
+        <item name="background">@android:color/white</item>
+    </style>
+
 </resources>
