@@ -33,8 +33,12 @@ class MainActivity : AppCompatActivity() {
 
         if (isAdmin) {
             binding.bottomNavigationView.menu.findItem(R.id.nav_invoices).setVisible(false)
+            binding.bottomNavigationView.menu.findItem(R.id.itemFirst).setVisible(true)
+            binding.bottomNavigationView.menu.findItem(R.id.itemLast).setVisible(true)
         }else{
             binding.bottomNavigationView.menu.findItem(R.id.nav_invoices).setVisible(true)
+            binding.bottomNavigationView.menu.findItem(R.id.itemFirst).setVisible(false)
+            binding.bottomNavigationView.menu.findItem(R.id.itemLast).setVisible(false)
         }
 
     }

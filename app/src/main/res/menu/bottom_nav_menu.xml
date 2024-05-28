@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/itemFirst"
+        android:title="" />
+
+    <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
         android:title="home" />
@@ -16,4 +20,7 @@
         android:icon="@drawable/ic_nav_more"
         android:title="more" />
 
+    <item
+        android:id="@+id/itemLast"
+        android:title="" />
 </menu>
